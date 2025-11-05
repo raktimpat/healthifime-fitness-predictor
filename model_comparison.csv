@@ -1,0 +1,6 @@
+,Accuracy,Macro F1-Score,Best Params
+Baseline (Stratified),0.25056011949215834,0.2505484632171586,{}
+Logistic Regression,0.6288274831964152,0.6281081520134592,"{'C': 10, 'solver': 'saga'}"
+K-Nearest Neighbors,0.6123973114264376,0.615269981193411,"{'n_neighbors': 9, 'weights': 'distance'}"
+Random Forest,0.7427184466019418,0.7430472389406022,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 100}"
+XGBoost,0.7613890963405526,0.7616535607671397,"{'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 100}"

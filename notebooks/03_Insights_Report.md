@@ -1,6 +1,6 @@
 ## 🧭 Exploratory Data Analysis – Insights Summary
 
-### Dataset Overview
+### [Dataset Overview](#dataset-overview)
 - **Entries:** 13,393  
 - **Features:** 12 columns (10 numerical, 2 categorical)  
 - **Missing Values:** None detected  
@@ -19,6 +19,18 @@
 - **Grip Force, Sit-ups, Broad Jump:** A few 0 values likely represent missing data  
 - **Sit and Bend Forward:** Range −25 to 213 cm → strong outliers at both extremes  
 
+| Feature | Mean | Min | Max | Notes |
+|----------|------|-----|-----|-------|
+| Age | 36.8 | 21 | 64 | Adult fitness range |
+| Height (cm) | 168.6 | 125 | 193.8 | Typical adult height |
+| Weight (kg) | 67.4 | 26.3 | 138.1 | Possible outliers at high end |
+| Body Fat (%) | 23.2 | 3 | 78.4 | Outliers present |
+| Diastolic (mmHg) | 78.8 | 0 | 156.2 | Zeros invalid |
+| Systolic (mmHg) | 130.2 | 0 | 201 | Zeros invalid |
+| Grip Force | 36.9 | 0 | 70.5 | Missing values encoded as zero |
+| Sit & Bend Forward (cm) | 15.2 | -25 | 213 | Outliers both sides |
+| Sit-ups | 39.7 | 0 | 80 | Possible missing entries |
+| Broad Jump (cm) | 190.1 | 0 | 303 | Normal performance range |
 ---
 
 ### Data Quality Observations
@@ -29,28 +41,67 @@
 ---
 
 ### Visual Insights
-1. **Class Distribution:**  
-   All classes (A–D) are evenly represented — no imbalance detected.
 
-2. **Numeric Feature Distributions:**  
-   - Most features show **approximately normal** or slightly skewed shapes.  
-   - **Sit and bend forward_cm** has extreme right-skew due to 213 cm value.  
-   - Possible multimodal patterns hint at differences by gender or class.
+####  Class Distribution  
+All four classes (A–D) are equally represented → ✅ *No class imbalance.*
 
-3. **Gender Distribution:**  
-   Males dominate (~63%). Likely physiological differences exist in `gripForce`, `broad jump_cm`, and `sit-ups`.
+<p align="center">
+  <img src="../visuals/01_class_distribution.png" width="70%">
+  <br>
+  <sub><em>Figure 1: Class distribution showing uniform representation across categories.</em></sub>
+</p>
 
-4. **Correlation Heatmap:**  
-   - **Strong positive:** `Height ↔ Weight`, `Systolic ↔ Diastolic`  
-   - **Moderate positive:** `GripForce ↔ Broad Jump`, `Sit-ups ↔ Broad Jump`  
-   - **Negative:** `Body fat_% ↔ Sit-ups`, `Body fat_% ↔ Broad Jump`  
-   - Indicates potential redundancy between certain features.
+---
 
-5. **Distributions by Class:**  
-   - **Class A:** Stronger, leaner group — high sit-ups, jump, and grip force  
-   - **Class D:** Lower physical performance, higher body fat and BP readings  
-   - Clear separation between classes — good signal for classification modeling.
+####  Numerical Feature Distributions  
+- Most features are **normally distributed** or slightly **skewed**  
+- **Flexibility** has extreme right-skew (213 cm outlier)
 
+<p align="center">
+  <img src="../visuals/02_all_numerica_distributions.png" width="80%">
+  <br>
+  <sub><em>Figure 2: Distribution plots for numerical features showing skewness and outliers.</em></sub>
+</p>
+
+---
+
+####  Gender Distribution  
+-  ~63% Male vs 👩 ~37% Female  
+- Gender may affect metrics like grip force and jump distance  
+
+<p align="center">
+  <img src="../visuals/03_gender_distribution.png" width="60%">
+  <br>
+  <sub><em>Figure 3: Gender breakdown showing moderate male dominance in dataset.</em></sub>
+</p>
+
+---
+
+####  Correlation Heatmap  
+-  **Strong positive:** `Height ↔ Weight`, `Systolic ↔ Diastolic`  
+-  **Moderate positive:** `GripForce ↔ Broad Jump`, `Sit-ups ↔ Broad Jump`  
+-  **Negative:** `Body fat_% ↔ Sit-ups / Broad Jump`
+
+<p align="center">
+  <img src="../visuals/04_correlation_heatmap.png" width="75%">
+  <br>
+  <sub><em>Figure 4: Correlation matrix showing strong physiological relationships among features.</em></sub>
+</p>
+
+---
+
+####  Feature Distributions by Class  
+-  **Class A:** Strong, lean (high sit-ups, jump, grip force)  
+-  **Class D:** Lower performance, higher body fat and BP  
+-  Clear separability → good signal for predictive models  
+
+<p align="center">
+  <img src="../visuals/05_distibutions.png" width="85%">
+  <br>
+  <sub><em>Figure 5: Class-wise comparison — visible separability across fitness levels.</em></sub>
+</p>
+
+---
 ---
 
 ### Summary
