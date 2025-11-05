@@ -114,8 +114,8 @@ Relationships among features align with real-world expectations. These patterns 
 ---
 
 ### Next Steps
-- Replace invalid zero values and handle outliers  
-- Encode categorical variables (`gender`, `class`)  
-- Apply scaling or normalization  
-- Use correlation results to reduce redundancy (PCA or feature selection)  
+- Replacing invalid zero values and handle outliers  
+- Encoding categorical variables (`gender`, `class`)  
+- Applying scaling   
+- Using correlation results to reduce redundancy (PCA or feature selection)  
 - Proceed with modeling and evaluation
